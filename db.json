@@ -1,0 +1,19 @@
+{
+
+    "posts": [
+        { "id": 1, "title": "json-server111", "author": "typicode111" },
+        { "id": 2, "title": "json-server222", "author": "typicode222" }
+      ],
+      "comments": [
+        { "id": 1, "body": "some comment", "postId": 1 }
+      ],
+      "profile": { "name": "typicode" },
+      "users": [
+          { "id": 1, "username": "aaaaaa", "age": 17 },
+          { "id": 2, "username": "bbbbbbb", "age": 22 },
+          { "id": 3, "username": "cccccc", "age": 44 },
+          { "id": 4, "username": "dddd", "age": 22 }
+      ]
+    
+}
+

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "~~/*": ["./*"],
+      "@@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules", ".nuxt", "dist"],
+  "scripts": {
+    "dev": "axios-mock-server -b && nuxt",
+    "build": "axios-mock-server -b && nuxt build",
+    "start": "axios-mock-server -b && nuxt start",
+    "generate": "axios-mock-server -b && nuxt generate"
+  }
+  
+}
