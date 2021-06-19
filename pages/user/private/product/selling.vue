@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    10　購入引取中
+    7,出品中
   </div>
 </template>
 <script>

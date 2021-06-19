@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    7　出品中
+    11,過去一覧
   </div>
 </template>
 <script>
