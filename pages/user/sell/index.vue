@@ -1,22 +1,20 @@
 <template>
   <div class="container">
-    1　ホームページ
+    6,出品入力
   </div>
 </template>
-
 <script>
-
 export default {
-  data(){
-    return{
+  data () {
+    return {
+      
     }
   },
-  created(){
-  },
   methods: {
+    
+  },
+  created() {
+    
   },
 }
 </script>
-
-<style>
-</style>

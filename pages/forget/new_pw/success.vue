@@ -1,22 +1,20 @@
 <template>
   <div class="container">
-    1　ホームページ
+    30,　変更が成功した
   </div>
 </template>
-
 <script>
-
 export default {
-  data(){
-    return{
+  data () {
+    return {
+      
     }
   },
-  created(){
-  },
   methods: {
+    
+  },
+  created() {
+    
   },
 }
 </script>
-
-<style>
-</style>

@@ -1,22 +1,21 @@
 <template>
   <div class="container">
-    1　ホームページ
+    other errors
+    <Nuxt/>
   </div>
 </template>
-
 <script>
-
 export default {
-  data(){
-    return{
+  data () {
+    return {
+      
     }
   },
-  created(){
-  },
   methods: {
+    
+  },
+  created() {
+    
   },
 }
 </script>
-
-<style>
-</style>

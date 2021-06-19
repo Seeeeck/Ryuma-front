@@ -1,22 +1,20 @@
 <template>
   <div class="container">
-    1　ホームページ
+    6-2　内容のチェック
   </div>
 </template>
-
 <script>
-
 export default {
-  data(){
-    return{
+  data () {
+    return {
+      
     }
   },
-  created(){
-  },
   methods: {
+    
+  },
+  created() {
+    
   },
 }
 </script>
-
-<style>
-</style>

@@ -1,22 +1,20 @@
 <template>
   <div class="container">
-    1　ホームページ
+    30,公に見せる個人ページ
   </div>
 </template>
-
 <script>
-
 export default {
-  data(){
-    return{
+  data () {
+    return {
+      
     }
   },
-  created(){
-  },
   methods: {
+    
+  },
+  created() {
+    
   },
 }
 </script>
-
-<style>
-</style>

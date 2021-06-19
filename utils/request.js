@@ -6,12 +6,12 @@ const service = axios.create({
     baseURL: 'http://localhost:9002',
     timeout: 5000
 })
-mock(service)
+//mock(service)
 
 service.interceptors.request.use(
     config => {
-        if (cookie.get('ryus_token')){
-            config.headers['Authorization'] = 'Bearer ' + cookie.get('ryus_token');
+        if (cookie.get('Authorization')){
+            config.headers['Authorization'] = "Bearer " + cookie.get('Authorization');
         }
         return config;
     },
@@ -24,24 +24,18 @@ service.interceptors.request.use(
 )
 
 service.interceptors.response.use(
-  /**
-   * If you want to get http information such as headers or status
-   * Please return  response => response
-  */
 
-  /**
-   * Determine the request status by custom code
-   * Here is just an example
-   * You can also judge the status by HTTP Status Code
-   */
     response => {
         const res = response
         if(res.status !==200){
-            Message({
-                message: res.message || 'Error',
-                type: 'error',
-                duration: 5 * 1000
-              })
+            if (res.status===401){
+                Message({
+                    message: 'ログインしてください。',
+                    type: 'error',
+                    duration: 3 * 1000
+                })
+                window.location.href="/login"
+            }
             return Promise.reject(new Error(res.message || 'Error'));
         }else{
             return res;
