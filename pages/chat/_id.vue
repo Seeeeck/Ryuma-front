@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+import cookie from "js-cookie";
 export default {
   data() {
     return {
@@ -16,7 +17,7 @@ export default {
       //判断当前浏览器是否支持WebSocket
       
       //如果支持WebSocket，发起WebSocket连接
-      this.websocket = new WebSocket("ws://localhost:9002/chat/connect/"+this.$route.params.id);
+      this.websocket = new WebSocket("ws://localhost:9002/chat/connect/"+this.$route.params.id,[cookie.get('ryus_token')]);
       //连接发生错误的回调方法
       this.websocket.onerror = () => {
         this.message = "error";
