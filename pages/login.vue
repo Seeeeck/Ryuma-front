@@ -82,15 +82,14 @@ export default {
         const googleUser = await this.$gAuth.signIn();
         if (googleUser) {
           googleLogin(googleUser.getAuthResponse().id_token).then((response) => {
-            cookie.set("ryus_token", response.data.data.token, {
+            cookie.set("ryus_token", response.data.token, {
               expires: 1,
               domain: "localhost",
             });
             //tokenでユーザ情報をGet
             getLoginInfo().then((response) => {
-               console.log(response);
               //ユーザ情報をcookieに入れる
-              cookie.set("ryus_user", response.data.data.userInfo, {
+              cookie.set("ryus_user", response.data.userInfo, {
                 expires: 1,
                 domain: "localhost",
               });
@@ -127,5 +126,7 @@ export default {
   components: { vueRecaptcha },
 };
 </script>
+<style scoped>
 
+</style>
 
