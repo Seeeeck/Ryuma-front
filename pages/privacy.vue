@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    13,プライバシー
+    <p>13,プライバシー</p>
+    Ryumaを利用するにあたって，以下のことに気をつけてくださいね，何もないですが，
   </div>
 </template>
 <script>
