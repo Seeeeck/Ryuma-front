@@ -1,7 +1,17 @@
 <template>
   <div>
-    <header>Ryuma!</header>
-    <Nuxt />
+    <header>
+      Ryuma!
+      <div class="login">
+        <ui>
+          <li> <el-button type="primary"><router-link to="/login">　ログイン　</router-link></el-button></li>
+          <li> <el-button type="primary"><router-link to="/login">サインアップ</router-link></el-button></li>
+        </ui>
+      </div>
+    </header>
+    
+    
+
     <footer>
       <ul class="footer-menu">
       <li>  <a href="http://localhost:3000/about_us"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
@@ -24,8 +34,9 @@ footer {
   width: 100%;
   bottom: 0
 }
+
 ul.footer-menu li {
-display: inline;
+  display: inline;
 }
 
 header {
@@ -36,6 +47,7 @@ header {
   font-size: 50px;
   margin-bottom: 20px;
   font-family: 'Caveat', cursive;
+  position: relative;
 }
 
 .about_ryuma{
@@ -58,4 +70,22 @@ a{
 .ryuma{
  font-family: 'Caveat', cursive; 
 }
+
+.login{
+  color: white;
+  text-decoration:none;/*アンダーラインなし */
+  float: right;
+}
+
+li{
+  list-style:none;/* 箇条書きの点なし*/
+  padding:0px;
+  margin: 0px;
+  display: inline-block;
+}
+
 </style>
+
+<!--marginは要素の周りにスペースを入れる．他の要素がどっかに飛んでいく．．危険，，6/25-->
+<!--paddingは要素の中にスペースを入れる．-->
+

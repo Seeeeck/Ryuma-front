@@ -2,6 +2,7 @@
   <div class="container">
     1　ホームページ
     {{loginInfo}}
+    
   </div>
 </template>
 
