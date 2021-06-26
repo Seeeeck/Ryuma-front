@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    2　
+    2　マイページ
     このページに対応するリンク(ボタン)が必要
   </div>
 </template>
@@ -10,6 +10,11 @@ export default {
     return {
       
     }
+  },
+  head(){
+    return {
+      title: 'マイページ'
+      }
   },
   methods: {
     

@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: 'パスワード変更ページ'
+      }
+  },
   methods: {
     
   },

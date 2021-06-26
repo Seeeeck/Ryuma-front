@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: '変更完了!'
+      }
+  },
   methods: {
     
   },

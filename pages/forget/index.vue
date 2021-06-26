@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: 'パスワードを忘れました'
+      }
+  },
   methods: {
     
   },

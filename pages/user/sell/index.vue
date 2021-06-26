@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: '出品ページ'
+      }
+  },
   methods: {
     
   },

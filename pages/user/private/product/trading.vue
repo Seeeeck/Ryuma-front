@@ -11,6 +11,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: '取引中一覧',
+      }
+  },
   methods: {
     
   },

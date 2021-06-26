@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: '取引履歴',
+      }
+  },
   methods: {
     
   },

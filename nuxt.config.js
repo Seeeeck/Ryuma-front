@@ -1,9 +1,10 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'test11',
+    title: 'Ryuma! 琉大生のためのフリマサイト',
+    titleTemplate: "%s | Ryuma!",
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },

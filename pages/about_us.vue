@@ -11,6 +11,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: 'Ryuma!について',
+      }
+  },
   methods: {
     
   },

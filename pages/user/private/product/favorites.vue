@@ -10,6 +10,11 @@ export default {
       
     }
   },
+  head(){
+    return {
+      title: 'お気に入り',
+      }
+  },
   methods: {
     
   },

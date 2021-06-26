@@ -18,6 +18,11 @@ export default {
   created(){
     this.fetchData();
   },
+  head(){
+    return {
+      title: 'homeページ',
+      }
+  },
   methods: {
     fetchData() {
       let userStr = cookie.get("ryus_user");
@@ -27,6 +32,7 @@ export default {
     },
   },
 }
+
 </script>
 
 <style>
