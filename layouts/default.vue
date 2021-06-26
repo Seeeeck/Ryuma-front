@@ -2,18 +2,19 @@
   <div>
     <header >
       Ryuma!
+      <div class="header-btn">
         <el-button type="primary"><nuxt-link to="/login" class="login">　ログイン　</nuxt-link></el-button>
-        <el-button type="primary"><nuxt-link to="/login" class="login">サインアップ</nuxt-link></el-button>
-      
+        <el-button type="primary"><nuxt-link to="/register" class="login">サインアップ</nuxt-link></el-button>
+      </div>
     </header>
     
     <nuxt />
 
     <footer>
       <ul class="footer-menu">
-       <li>  <a href="http://localhost:3000/about_us" class="footer_link"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
-       <li>  <a href="http://localhost:3000/privacy" class="footer_link">プライバシーと利用規約 </a> ｜</li>
-       <li>  <a href="http://localhost:3000/question" class="footer_link">お問い合わせ </a> ｜</li>
+       <li>  <a href="/about_us" class="footer_link"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
+       <li>  <a href="/privacy" class="footer_link">プライバシーと利用規約 </a> ｜</li>
+       <li>  <a href="/question" class="footer_link">お問い合わせ </a> ｜</li>
       </ul>
       <p>© SUNS</p>
     </footer>
@@ -71,8 +72,12 @@ header {
   color: white;
   text-decoration:none;/*アンダーラインなし */
   
+  
 }
 
+.header-btn{
+  float: right;
+}
 </style>
 
 <!--marginは要素の周りにスペースを入れる．他の要素がどっかに飛んでいく．．危険，，6/25-->

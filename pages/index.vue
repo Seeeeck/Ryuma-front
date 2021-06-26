@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <br>
     1　ホームページ
     <p>ここはホームページです！</p>
     {{loginInfo}}

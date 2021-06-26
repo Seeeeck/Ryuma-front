@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    20
+    20 新規登録　Googleアカウントで？メールで？
   </div>
 </template>
 <script>
