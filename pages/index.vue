@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     1　ホームページ
+    <p>ここはホームページです！</p>
     {{loginInfo}}
     
   </div>

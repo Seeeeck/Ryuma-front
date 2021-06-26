@@ -2,11 +2,9 @@
   <div>
     <header>
       Ryuma!
-      <div class="login">
-        <ui>
-          <li> <el-button type="primary"><router-link to="/login">　ログイン　</router-link></el-button></li>
-          <li> <el-button type="primary"><router-link to="/login">サインアップ</router-link></el-button></li>
-        </ui>
+      <div class="header-btn">
+          <li> <el-button type="primary"><router-link to="/login" class="login">　ログイン　</router-link></el-button></li>
+          <li> <el-button type="primary"><router-link to="/login" class="login">サインアップ</router-link></el-button></li>
       </div>
     </header>
     
@@ -14,12 +12,11 @@
 
     <footer>
       <ul class="footer-menu">
-      <li>  <a href="http://localhost:3000/about_us"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
-      <li>  <a href="http://localhost:3000/privacy">プライバシーと利用規約 </a> ｜</li>
-      <li>  <a href="http://localhost:3000/question">お問い合わせ </a> ｜</li>
+       <li>  <a href="http://localhost:3000/about_us" class="footer_link"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
+       <li>  <a href="http://localhost:3000/privacy" class="footer_link">プライバシーと利用規約 </a> ｜</li>
+       <li>  <a href="http://localhost:3000/question" class="footer_link">お問い合わせ </a> ｜</li>
+      </ul>
       <p>© SUNS</p>
-    </ul>
-
     </footer>
   </div>
 </template>
@@ -63,7 +60,7 @@ header {
   margin-right: 400px;
 }
 
-a{
+.footer_link{
   color:turquoise;
 }
 
@@ -71,17 +68,21 @@ a{
  font-family: 'Caveat', cursive; 
 }
 
-.login{
-  color: white;
-  text-decoration:none;/*アンダーラインなし */
+.header-btn{
   float: right;
 }
 
+.login{
+  color: white;
+  text-decoration:none;/*アンダーラインなし */
+}
+
+
 li{
   list-style:none;/* 箇条書きの点なし*/
-  padding:0px;
-  margin: 0px;
-  display: inline-block;
+  margin-bottom: -30px;
+  margin-top: -25px;
+  margin-right: 10px;  /*←←headerにボタンを二つ縦に表示させるための絶妙な値です．．． */
 }
 
 </style>
