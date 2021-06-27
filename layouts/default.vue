@@ -9,7 +9,6 @@
     </header>
     
     <nuxt />
-
     <footer>
       <ul class="footer-menu">
        <li>  <a href="/about_us" class="footer_link"> <span class="ryuma"> Ryuma! </span>について </a> ｜</li>
@@ -27,7 +26,7 @@ footer {
   color: white;
   text-align: center;
   height: 100px;
-  position: absolute;
+  /*position: absolute;*/
   width: 100%;
   bottom: 0
 }

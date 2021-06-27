@@ -1,10 +1,14 @@
 <template>
   <div class="container">
-    <br>
+  <br>
+    <el-button type="primary" icon="el-icon-search">Search</el-button>
+      <br>
+    <div style="text-align: center;">
     1　ホームページ
     <p>ここはホームページです！</p>
+     <el-button :plain="true" @click="open">商品詳細</el-button>
+    </div>
     {{loginInfo}}
-    
   </div>
 </template>
 
@@ -31,6 +35,12 @@ export default {
         this.loginInfo = JSON.parse(userStr);
       }
     },
+    open(){
+      this.$message({
+        showClose: true,
+        message:'商品詳細を見るためにはログインしてください．'
+      });
+    }
   },
 }
 
