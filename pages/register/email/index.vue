@@ -6,15 +6,16 @@
       <el-step title="Step 2" description="認証"></el-step>
       <el-step title="Step 3" description="登録完了！"></el-step>
     </el-steps> 
+    
     <p>ニックネーム</p>
     
-    <el-input placeholder="ユーザー名を入力" v-model="input"></el-input>
+    <el-input placeholder="ユーザー名を入力" v-model="name"></el-input>
     
     <p>パスワード</p>
-    <el-input placeholder="パスワードを入力してください" v-model="input" show-password></el-input>
+    <el-input placeholder="パスワードを入力してください" v-model="password" show-password></el-input>
     
     <p>メールアドレス</p>
-    <el-input placeholder="メールアドレス" v-model="input"></el-input>
+    <el-input placeholder="メールアドレス" v-model="mail"></el-input>
 
 <br><br><br>
     <el-button type="primary">確認コードを送信</el-button>
@@ -28,7 +29,7 @@
       <p>
         確認コードを入力
       </p>
-      <el-input placeholder="確認コードを入力" v-model="input"></el-input>
+      <el-input placeholder="確認コードを入力" v-model="code"></el-input>
 <br><br>
 <!--確認コードが一致したら表示する-->
       <el-steps :active="3">
@@ -48,7 +49,10 @@
 export default {
   data () {
     return {
-      
+      name:'',
+      password:'',
+      mail:'',
+      code:''
     }
   },
   head(){

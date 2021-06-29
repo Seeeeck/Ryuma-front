@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header >
+    <header>
       Ryuma!
       <div class="header-btn">
         <el-button type="primary"><nuxt-link to="/login" class="login">　ログイン　</nuxt-link></el-button>
