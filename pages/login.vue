@@ -1,15 +1,15 @@
 <template>
   <div class="container">
 
+    <el-button @click="handleGoogleLogin">Login with Google</el-button>
+    <el-button @click="handleLogout">Logout</el-button>
+
     <vue-recaptcha
       ref="recaptcha"
       @verify="onVerify"
       sitekey="6Ld9VBQbAAAAADeagY_xkP-SuCqnzaeLyNdZvc0T"
       @expired="onExpired"
     ></vue-recaptcha>
-
-    <el-button @click="handleGoogleLogin">Login with Google</el-button>
-    <el-button @click="handleLogout">Logout</el-button>
 
   </div>
 </template>
@@ -51,13 +51,15 @@ export default {
                   });
                   //tokenでユーザ情報をGet
                   getLoginInfo().then((response) => {
-                    //ユーザ情報をcookieに入れる
-                    cookie.set("ryus_user", response.data.data.userInfo, {
-                      expires: 1,
-                      domain: "localhost",
-                    });
-                    //jump to homepage
-                    window.location.href = "/";
+                    if (response.data.success) {
+                      //ユーザ情報をcookieに入れる
+                      cookie.set("ryus_user", response.data.data.userInfo, {
+                        expires: 1,
+                        domain: "localhost",
+                      });
+                      //jump to homepage
+                      window.location.href = "/";
+                    }
                   });
                 }
               })
@@ -78,27 +80,42 @@ export default {
     },
 
     async handleGoogleLogin() {
+      const loading = this.$loading({
+        lock: true,
+        text: "Loading",
+      });
       try {
         const googleUser = await this.$gAuth.signIn();
         if (googleUser) {
-          googleLogin(googleUser.getAuthResponse().id_token).then((response) => {
-            cookie.set("ryus_token", response.data.token, {
-              expires: 1,
-              domain: "localhost",
-            });
-            //tokenでユーザ情報をGet
-            getLoginInfo().then((response) => {
-              //ユーザ情報をcookieに入れる
-              cookie.set("ryus_user", response.data.userInfo, {
-                expires: 1,
-                domain: "localhost",
-              });
-              //jump to homepage
-              window.location.href = "/";
-            });
-          });
+          googleLogin(googleUser.getAuthResponse().id_token).then(
+            (response) => {
+              console.log(response);
+              if (response.success) {
+                console.log(response);
+                cookie.set("ryus_token", response.data.token, {
+                  expires: 1,
+                  domain: "localhost",
+                });
+                //tokenでユーザ情報をGet
+                getLoginInfo().then((response) => {
+                  console.log(response);
+                  //ユーザ情報をcookieに入れる
+                  cookie.set("ryus_user", response.data.userInfo, {
+                    expires: 1,
+                    domain: "localhost",
+                  });
+                  //jump to homepage
+                  window.location.href = "/";
+                });
+              } else {
+                this.$message.error("Unknown error,pls try again.");
+                loading.close();
+              }
+            }
+          );
         }
       } catch (error) {
+        loading.close();
         console.error(error);
         return null;
       }
@@ -127,6 +144,5 @@ export default {
 };
 </script>
 <style scoped>
-
 </style>
 

@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     1　ホームページ
-    {{loginInfo}}
+    <a href="/login">to login page</a>
+    <div v-if="loginInfo">
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
       loginInfo: '',
     }
   },
-  created(){
+  mounted(){
     this.fetchData();
   },
   methods: {
