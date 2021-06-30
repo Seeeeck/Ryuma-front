@@ -15,6 +15,7 @@
        <li>  <a href="/privacy" class="footer_link">プライバシーと利用規約 </a> ｜</li>
        <li>  <a href="/question" class="footer_link">お問い合わせ </a> ｜</li>
       </ul>
+      <nuxt-link to="/" class="return-top ryuma"> Ryuma! </nuxt-link> 
       <p>© SUNS</p>
     </footer>
   </div>
@@ -25,7 +26,7 @@ footer {
   background-color: #174a5c;
   color: white;
   text-align: center;
-  height: 100px;
+  /*height: 100px;*/
   /*position: absolute;*/
   width: 100%;
   bottom: 0
@@ -74,6 +75,12 @@ header {
 
 .header-btn{
   float: right;
+}
+
+.return-top{
+  color: chartreuse;
+  text-decoration: none;
+  font-size: 25px;
 }
 </style>
 
