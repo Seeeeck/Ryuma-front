@@ -1,14 +1,21 @@
 <template>
   <div class="container">
+    <p>登録したメールアドレス</p>
+    <el-input placeholder="メールアドレス" v-model="mail"></el-input>
 
+    <p>パスワード</p>
+    <el-input placeholder="パスワードを入力してください" v-model="password" show-password></el-input>
+<br><br>
+    <p>または，Googleでログイン</p>
+<br>    
     <vue-recaptcha
       ref="recaptcha"
       @verify="onVerify"
       sitekey="6Ld9VBQbAAAAADeagY_xkP-SuCqnzaeLyNdZvc0T"
       @expired="onExpired"
     ></vue-recaptcha>
-
-    <el-button @click="handleGoogleLogin">Login with Google</el-button>
+<br><br>
+    <el-button type="primary" @click="handleGoogleLogin">Login with Google</el-button>
     <el-button @click="handleLogout">Logout</el-button>
 
   </div>
@@ -19,10 +26,13 @@ import { getLoginInfo } from "@/api/userApi";
 import { googleLogin } from "@/api/googleApi";
 import vueRecaptcha from "vue-recaptcha";
 export default {
-  layout: "sign",
+  layout: "no-header", /*ヘッダーやログインボタンがここには出ないように．*/
+  /*layout:"sign"　ってやつは書き換えました．意味があったらすみません！！*/
   data() {
     return {
       robot: true,
+      mail:'',
+      password:''
     };
   },
   head() {
