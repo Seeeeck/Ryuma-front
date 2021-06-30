@@ -6,7 +6,7 @@
     "dev": "npm-run-all mock:build --parallel nuxt mock:watch",
     "nuxt": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "PORT=3001 nuxt start",
     "generate": "nuxt generate",
     "mock:build": "axios-mock-server --build",
     "mock:watch": "axios-mock-server --watch"

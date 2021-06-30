@@ -1,43 +1,63 @@
 <template>
-  <div class="container">
-    <p>登録したメールアドレス</p>
-    <el-input placeholder="メールアドレス" v-model="mail"></el-input>
+  <div class="login-container">
+    <el-card class="login-card">
+      <div class="btn-wrapper">
+        <el-button @click="handleGoogleLogin" type="success" style="">Login with Google</el-button>
+      </div>
+      
+      <el-form :model="loginForm">
+        <div style="margin-bottom: 20px;">
+          <el-input
+            placeholder="メールアドレス"
+            v-model="mail_address"
+            clearable>
+          </el-input>
+        </div>
+        <div style="margin-bottom: 40px;">
+          <el-input
+            placeholder="パスワード"
+            v-model="password"
+            show-password>
+          </el-input>
+        </div>
+      </el-form>
 
-    <p>パスワード</p>
-    <el-input placeholder="パスワードを入力してください" v-model="password" show-password></el-input>
-<br><br>
-    <p>または，Googleでログイン</p>
-<br>    
-    <vue-recaptcha
-      ref="recaptcha"
-      @verify="onVerify"
-      sitekey="6Ld9VBQbAAAAADeagY_xkP-SuCqnzaeLyNdZvc0T"
-      @expired="onExpired"
-    ></vue-recaptcha>
-<br><br>
-    <el-button type="primary" @click="handleGoogleLogin">Login with Google</el-button>
-    <el-button @click="handleLogout">Logout</el-button>
+       
+      <vue-recaptcha
+        ref="recaptcha"
+        @verify="onVerify"
+        sitekey="6Ld9VBQbAAAAADeagY_xkP-SuCqnzaeLyNdZvc0T"
+        @expired="onExpired"
+      ></vue-recaptcha>
+      
 
+      <div class="btn-wrapper" style="margin-top: 20px;">
+        <el-button type="success">ログイン</el-button>
+
+      <nuxt-link to="/forget/new_pw">パスワードを忘れました</nuxt-link>
+      </div>
+
+    </el-card>
   </div>
 </template>
+
+
 <script>
 import cookie from "js-cookie";
 import { getLoginInfo } from "@/api/userApi";
 import { googleLogin } from "@/api/googleApi";
 import vueRecaptcha from "vue-recaptcha";
 export default {
-  layout: "no-header", /*ヘッダーやログインボタンがここには出ないように．*/
-  /*layout:"sign"　ってやつは書き換えました．意味があったらすみません！！*/
+  layout: "sign",
   data() {
     return {
       robot: true,
-      mail:'',
-      password:''
+      mail_address: '',
+      password: '',
     };
   },
   head() {
     return {
-      title:'ログインページ',
       script: [
         {
           src: "https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit",
@@ -138,6 +158,21 @@ export default {
 };
 </script>
 <style scoped>
+
+  .login-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .btn-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+    
+  }
+    
+  
 
 </style>
 

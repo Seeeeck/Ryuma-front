@@ -1,71 +1,23 @@
 <template>
-  <div class="container">
-    <!--20 新規登録　Googleアカウントで？メールで？-->
-<br><br>
-    <el-button type="primary" @click="handleGoogleLogin">Googleアカウントでサインイン</el-button>
-<br><br>
-    <el-button type="success"><nuxt-link to="/register/email" class="mail">メールアドレスで登録</nuxt-link></el-button>
+  <div class="register-container">
+    20
+    <el-card class="register-card" style="text-align: center;">
+      <div class="registration-title">新規会員登録</div>
+      <div class="btn-wrapper">
+        <el-button type="success" style="margin-bottom: 20px; text-align: center;"><nuxt-link to="/register/email" class="login">メールアドレスで登録する</nuxt-link></el-button>
+        <el-button @click="handleGoogleLogin" type="success" style="">Googleで登録する</el-button>
+      </div>
+    </el-card>
   </div>
 </template>
 <script>
-import cookie from "js-cookie";
-import { getLoginInfo } from "@/api/userApi";
-import { googleLogin } from "@/api/googleApi";
-import vueRecaptcha from "vue-recaptcha";
-
 export default {
   data () {
     return {
-      name:'',
-      password:'',
+      
     }
   },
-  head(){
-    return {
-      title: '新規登録'
-      }
-  },
   methods: {
-        submitLogin() {
-      if (!this.user.robot) {
-        this.$refs["userForm"].validate((valid) => {
-          if (valid) {
-            login(this.user)
-              .then((response) => {
-                if (response.data.success) {
-                  //tokenをcookieに入れる
-                  cookie.set("ryus_token", response.data.data.token, {
-                    expires: 1,
-                    domain: "localhost",
-                  });
-                  //tokenでユーザ情報をGet
-                  getLoginInfo().then((response) => {
-                    //ユーザ情報をcookieに入れる
-                    cookie.set("ryus_user", response.data.data.userInfo, {
-                      expires: 1,
-                      domain: "localhost",
-                    });
-                    //jump to homepage
-                    window.location.href = "/";
-                  });
-                }
-              })
-              .catch((error) => {
-                this.$message({
-                  type: "error",
-                  message: error.data.message,
-                });
-              });
-          }
-        });
-      } else {
-        this.$message({
-          type: "info",
-          message: "Please check the captcha",
-        });
-      }
-    },
-
     async handleGoogleLogin() {
       try {
         const googleUser = await this.$gAuth.signIn();
@@ -92,26 +44,7 @@ export default {
         return null;
       }
     },
-    onVerify(response) {
-      if (response) {
-        this.robot = false;
-      }
-    },
-    onExpired() {
-      this.robot = true;
-    },
-    fetchData() {
-      let userStr = cookie.get("ryus_user");
-      if (userStr) {
-        this.loginInfo = JSON.parse(userStr);
-      }
-    },
-    handleLogout() {
-      cookie.remove("ryus_token");
-      cookie.remove("ryus_user");
-      window.location.href = "/";
-    },
-  components: { vueRecaptcha },
+    
   },
   created() {
     
@@ -121,8 +54,27 @@ export default {
 
 <style scoped>
 
-.mail{
-  color: white;
-  text-decoration:none;/*アンダーラインなし */
-}
+  .register-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .registration-title {
+    font-size: 32px;
+    text-align: center;
+    font-weight: 800;
+  }
+
+  .login {
+    color: white;
+    text-decoration: none;
+  }
+
+  .btn-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
 </style>
