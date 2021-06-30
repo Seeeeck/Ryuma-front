@@ -70,8 +70,6 @@ header {
 .login{
   color: white;
   text-decoration:none;/*アンダーラインなし */
-  
-  
 }
 
 .header-btn{
